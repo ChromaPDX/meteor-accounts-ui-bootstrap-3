@@ -2,7 +2,7 @@
 <!-- LOGGED IN -->
 <!--           -->
 <template name="_loginButtonsLoggedInDropdown">
-	<li id="login-dropdown-list" class="dropdown">
+	<li id="login-dropdown-list" class="dropdown yamm-fw">
 		<a class="dropdown-toggle" data-toggle="dropdown">
 			{{displayName}}
 			{{#with user_profile_picture}}
@@ -10,17 +10,23 @@
 			{{/with}}
 			<b class="caret"></b>
 		</a>
-		<div class="dropdown-menu">
-			{{#if inMessageOnlyFlow}}
-				{{> _loginButtonsMessages}}
-			{{else}}
-				{{#if inChangePasswordFlow}}
-					{{> _loginButtonsChangePassword}}
-				{{else}}
-					{{> _loginButtonsLoggedInDropdownActions}}
-				{{/if}}
-			{{/if}}
-		</div>
+
+		<ul class="dropdown-menu">
+			<li>
+				<div class="row">
+					{{#if inMessageOnlyFlow}}
+						{{> _loginButtonsMessages}}
+					{{else}}
+						{{#if inChangePasswordFlow}}
+							{{> _loginButtonsChangePassword}}
+						{{else}}
+							{{> _loginButtonsLoggedInDropdownActions}}
+						{{/if}}
+					{{/if}}
+				</div>
+		 </li>
+		</ul>
+
 	</li>
 </template>
 
@@ -150,4 +156,3 @@
 	<button class="btn btn-block btn-primary" id="login-buttons-do-change-password">{{i18n 'loginButtonsChangePassword.submit'}}</button>
 	<button class="btn btn-block btn-default" id="login-buttons-cancel-change-password">{{i18n 'loginButtonsChangePassword.cancel'}}</button>
 </template>
-
