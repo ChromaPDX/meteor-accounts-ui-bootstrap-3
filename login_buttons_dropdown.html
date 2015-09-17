@@ -3,13 +3,22 @@
 <!--           -->
 <template name="_loginButtonsLoggedInDropdown">
 	<li id="login-dropdown-list" class="dropdown">
+
 		<a class="dropdown-toggle {{hasImage}}" data-toggle="dropdown">
-			{{displayName}}
+
 			{{#with user_profile_picture}}
-				<img src="{{this}}" class="img" alt="#" />
+
+					<div class="hexagon" style="background-image: url({{this}})">
+					  <div class="hexTop"></div>
+					  <div class="hexBottom"></div>
+					</div>
+
 			{{/with}}
-			<b class="caret"></b>
+
+			<span id="user-name">{{displayName}}</span>
+
 		</a>
+
 		<div class="dropdown-menu">
 			{{#if inMessageOnlyFlow}}
 				{{> _loginButtonsMessages}}
