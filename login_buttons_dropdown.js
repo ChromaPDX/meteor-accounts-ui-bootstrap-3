@@ -51,21 +51,13 @@
       return loginButtonsSession.get('dropdownVisible');
     },
     hasImage: function() {
-      if (Meteor.user()) {
-        if (Meteor.user().profilePictureUrl) {
-          if (Meteor.user().profilePictureUrl()) {
-            return "hasImage";
-          }
-        }
+      if (Meteor.user().profile_s3_cropped_url()) {
+        return "hasImage";
       }
       return "";
     },
     user_profile_picture: function() {
-      if (Meteor.user()) {
-        if (Meteor.user().profilePictureUrl) {
-          return Meteor.user().profilePictureUrl()
-        }
-      }
+      return Meteor.user().profile_s3_cropped_url()
     }
   });
 
