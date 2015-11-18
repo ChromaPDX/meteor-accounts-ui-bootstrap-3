@@ -220,7 +220,9 @@
     },
 
     services: function() {
-      return Accounts._loginButtons.getLoginServices();
+     return _.select( Accounts._loginButtons.getLoginServices(), function(e){
+       return e.name != "stripe"
+     })
     },
 
     isPasswordService: function() {
